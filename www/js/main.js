@@ -64,7 +64,7 @@ function move(movConta){
     if(movConta == null){
         main();
     }else{
-        var opt, valor, menu = "Olá" + movConta.cliente + "\nExtrato - 1\nDepositar - 2\nSacar - 3\nSair da conta - 0", sair = false;
+        var opt, valor, menu = "Olá " + movConta.cliente + "\nExtrato - 1\nDepositar - 2\nSacar - 3\nSair da conta - 0", sair = false;
         opt = prompt(menu);
         if(opt == null)main();
         switch (opt) {
