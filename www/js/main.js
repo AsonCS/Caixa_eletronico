@@ -21,7 +21,7 @@ function main(){
 }
 
 function criar_conta(){
-    var num = null, cli = null, sen = null, opt = null, menu = "Tipo de conta\nPoupan�a - 1\nCorrente - 2\nCorrente especial - 3", err;
+    var num = null, cli = null, sen = null, opt = null, menu = "Tipo de conta\nPoupança - 1\nCorrente - 2\nCorrente especial - 3", err;
     opt = prompt(menu);
     if(opt == null)main();
     num = prompt("Numero da conta (max 4 digitos)");
@@ -64,7 +64,7 @@ function move(movConta){
     if(movConta == null){
         main();
     }else{
-        var opt, valor, menu = "Ol� " + movConta.cliente + "\nExtrato - 1\nDepositar - 2\nSacar - 3\nSair da conta - 0", sair = false;
+        var opt, valor, menu = "Olá" + movConta.cliente + "\nExtrato - 1\nDepositar - 2\nSacar - 3\nSair da conta - 0", sair = false;
         opt = prompt(menu);
         if(opt == null)main();
         switch (opt) {
@@ -73,7 +73,7 @@ function move(movConta){
                 move(movConta);
                 break;
             case "2":
-                valor = prompt("Valor para dep�sito");
+                valor = prompt("Valor para depósito");
                 if(valor == null)move(movConta);
                 if (valor.match("([0-9]+)([.]?)([0-9]{0,2})")) {
                     contas.depositar(parseFloat(valor), movConta.numero, movConta.senha, (con) => {
