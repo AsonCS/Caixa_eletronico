@@ -80,8 +80,12 @@ function Contas_DAO (db){
                 erro.code = code;
                 erro.message = 'Valor invalido';
                 break;
+            case 2:
+                erro.code = code;
+                erro.message = 'Erro no array';
+                break;
             default:
-            erro.code = code;
+            erro.code = 0;
             erro.message = 'Erro';
         }        
         return erro;
@@ -143,6 +147,17 @@ function Contas_DAO (db){
         (t, error) => {
             error_callback(error);
         });
+    }
+    this.getArrayConta = (sucess_callback = (arrayContas) => {}, error_callback = (error) => {}) => {
+        var query = 'SELECT * FROM contas';
+        db.execute(query, [], (t, data) => {
+            var arrayContas = new Array();
+            for(var i = 0; i < data.rows.length; i++){
+                arrayContas.push(this.montaConta(data.rows.item(i)));
+            }
+            sucess_callback(arrayContas);
+        },
+        (error) => error_callback(this.err(2)));
     }
     this.getConta = (num, sen, sucess_callback = (conta) => {}, error_callback = (error, conta) => {}) => {
         this.render();

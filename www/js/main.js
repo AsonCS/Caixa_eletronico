@@ -4,7 +4,7 @@ var contas = new Contas_DAO(db);
 function main(){
     var menu_ini = "Criar conta - 1\nEntrar na Conta - 2\nSair - 0", sair = false, ent = null;
     ent = prompt(menu_ini);
-    if (ent == null)return;
+    if (ent == null)preencher();
     switch (ent) {
         case "1":
             criar_conta();
@@ -13,7 +13,7 @@ function main(){
             entrar_conta();
             break;
         case "0":
-            sair = !sair;
+            preencher();
             break;
         default:
             main();
@@ -109,4 +109,17 @@ function move(movConta){
                 move(movConta);
         }
     }
+}
+
+function preencher(){
+    contas.getArrayConta((arrayContas) => {
+        var table = document.getElementById('tab');
+        var tbody = table.getElementsByTagName('tbody')[0];
+        tbody.innerHTML = '';
+        for(var i = 0; i < arrayContas.length; i++){
+            row = "<td>"+arrayContas[i].cliente+"</td><td>"+arrayContas[i].numero+"</td><td>"+arrayContas[i].senha+"</td>";
+            tbody.innerHTML += row;
+        }
+    });
+    
 }
