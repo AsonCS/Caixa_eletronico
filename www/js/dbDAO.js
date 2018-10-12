@@ -84,6 +84,10 @@ function Contas_DAO (db){
                 erro.code = code;
                 erro.message = 'Erro no array';
                 break;
+            case 3:
+                erro.code = code;
+                erro.message = 'Usuario ou senha invalida';
+                break;
             default:
             erro.code = 0;
             erro.message = 'Erro';
@@ -155,9 +159,12 @@ function Contas_DAO (db){
             for(var i = 0; i < data.rows.length; i++){
                 arrayContas.push(this.montaConta(data.rows.item(i)));
             }
-            sucess_callback(arrayContas);
-        },
-        (error) => error_callback(this.err(2)));
+            if(arrayContas > 0){
+                sucess_callback(arrayContas);
+            }else{
+                error_callback(this.err(2));
+            }
+        },(t, error) => error_callback(error));
     }
     this.getConta = (num, sen, sucess_callback = (conta) => {}, error_callback = (error, conta) => {}) => {
         this.render();
@@ -167,7 +174,7 @@ function Contas_DAO (db){
             if(data.rows.length > 0){
                 sucess_callback(this.montaConta(data.rows.item(0)));
             }else{
-                sucess_callback(null);
+                error_callback(this.err(3), null);
             }
         }, 
         (t, error) => {
