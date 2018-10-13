@@ -53,16 +53,16 @@ class Corrente_especial extends Conta {
         this.tipo = Conta.C_ESPECIAL();
         this.limite = 1000;
         this.sacar = (valor) => {
-            if(conta.saldo - valor < conta.limite * -1){
+            if(this.saldo - valor < this.limite * -1){
                 return false;
             }else{
-                conta.saldo -= valor;
+                this.saldo -= valor;
                 return true;
             }
         };
         this.saldoString = () => {
-            var ext_limite = conta.saldo < 0 ? conta.limite + conta.saldo : conta.limite;
-            var ext_saldo = conta.saldo < 0 ? 0 : conta.saldo;
+            var ext_limite = this.saldo < 0 ? this.limite + this.saldo : this.limite;
+            var ext_saldo = this.saldo < 0 ? 0 : this.saldo;
             return "Saldo: "+ext_saldo.toFixed(2)+"\nLimite: "+ext_limite.toFixed(2);
         };    
     }
