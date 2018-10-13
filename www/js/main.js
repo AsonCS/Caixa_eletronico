@@ -84,7 +84,7 @@ function move(movConta){
                         move(con);
                     });
                 } else {
-                    alert(null, "Valor invalido!");
+                    alert("Valor invalido!");
                 }
                 break;
             case "3":
@@ -117,7 +117,13 @@ function preencher(){
         var tbody = table.getElementsByTagName('tbody')[0];
         tbody.innerHTML = '';
         for(var i = 0; i < arrayContas.length; i++){
-            row = "<td>"+arrayContas[i].cliente+"</td><td>"+arrayContas[i].numero+"</td><td>"+arrayContas[i].senha+"</td>";
+            var row = "<td>"+arrayContas[i].cliente+"</td>";
+            row += "<td>"+arrayContas[i].numero+"</td>";
+            row += "<td>"+arrayContas[i].senha+"</td>";
+            row += "<td>"+arrayContas[i].saldo.toFixed(4)+"</td>";
+            row += "<td>"+arrayContas[i].tipo+"</td>";
+            row += "<td>"+arrayContas[i].taxa+"</td>";
+            row += "<td>"+arrayContas[i].limite+"</td>";
             tbody.innerHTML += row;
         }
     });
