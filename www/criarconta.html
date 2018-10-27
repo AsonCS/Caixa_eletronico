@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Criar Conta</title>
+
+	<!-- carregando todos os recursos -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/dbDAO.js"></script>
+	<script src="js/main.js"></script>
+</head>
+
+<body style="text-align: center;">
+	<div class="container-fluid">
+
+		<h1>
+			<span class="badge badge-danger">Criar Conta</span>
+		</h1>
+
+		<form action="#" onsubmit="return criar_conta();" id="form">
+
+			<div class="form-group">
+				<label for="firstname">Nome</label>
+				<input type="text" name="firstname" id="firstname" class="form-control" placeholder="Nome" required>
+			</div>
+
+			<div class="form-group">
+				<label for="numconta">Numero da Conta</label>
+				<input name="numconta" type="text" class="form-control" id="numconta" placeholder="Numero Conta" pattern="[0-9]+" required>
+
+			</div>
+
+			<div class="form-group">
+				<label for="senha">Senha</label>
+				<input type="password" class="form-control" name="senha" id="senha" placeholder="Senha	" required>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="tipocont">Tipo da Conta</label>
+				<select name="tipocont" class="form-control" id="tipocont">
+					<option value="1">Poupança</option>
+					<option value="2">Corrente</option>
+					<option value="3">Corrente especial</option>
+				</select>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+
+</html>

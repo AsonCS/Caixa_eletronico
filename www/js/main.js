@@ -1,6 +1,24 @@
+var debug = true;
 var db = new Db();
 var contas = new Contas_DAO(db);
 
+function criar_conta(){
+	var nome = document.getElementById('form').firstname.value;
+	var tipo = document.getElementById('form').tipocont.value;
+	var numconta = document.getElementById('form').numconta.value;
+	var senha = document.getElementById('form').senha.value;
+	contas.criarConta(numconta, nome, senha, tipo, (conta) => {
+            alert('inserido');            
+        }, (error) => {alert(error.message)});
+    document.getElementById('form').reset();
+	return false;
+}
+
+function entra_conta(){
+	return false;
+}
+
+/*
 function main(){
     var menu_ini = "Criar conta - 1\nEntrar na Conta - 2\nSair - 0", sair = false, ent = null;
     ent = prompt(menu_ini);
@@ -110,6 +128,7 @@ function move(movConta){
         }
     }
 }
+*/
 
 function preencher(){
     contas.getArrayConta((arrayContas) => {

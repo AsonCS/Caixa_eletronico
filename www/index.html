@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Caixa eletronico</title>
-		<script src="js/dbDAO.js"></script>
-		<script src="js/main.js"></script>
-    </head >
-    <body style="text-align: center;" onload="preencher()">
-	
-		<button onclick="main()" value="inserir">
-            <h1>Caixa eletronico</h1>
-        </button>
 
-        <table id="tab" style="margin: auto">
-            <thead>
-                <th>cliente</th>
-                <th>numero</th>
-                <th>senha</th>
-                <th>saldo</th>
-                <th>tipo</th>
-                <th>taxa</th>
-                <th>limite</th>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-	
-	</body>
+<head>
+    <title>Caixa eletronico</title>
+
+    <!-- carregando todos os recursos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dbDAO.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body style="text-align: center;" onload="preencher()">
+
+    <button onclick="location='criarconta.html'" value="inserir" type="button" class="btn btn-danger">
+        <h1>Criar Conta</h1>
+    </button>
+    <button onclick="location='entrarconta.html'" value="inserir" type="button" class="btn btn-danger">
+        <h1>Entrar na Conta</h1>
+    </button>
+
+
+    <table id="tab" class="table">
+        <thead>
+            <th>cliente</th>
+            <th>numero</th>
+            <th>senha</th>
+            <th>saldo</th>
+            <th>tipo</th>
+            <th>taxa</th>
+            <th>limite</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+</body>
+
 </html>
