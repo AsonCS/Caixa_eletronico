@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Manipular conta</title>
+
+  <!-- carregando todos os recursos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/dbDAO.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<body style="text-align: center;" onload="manipular_conta()" id="mancon">
+  <div class="container-fluid">
+    <h1>Olá:
+      <span id="cliente"></span>
+    </h1>
+    <h2>Seu extrato é:
+      <span id="extrato"></span>
+    </h2>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#depositar">
+          Depositar
+        </button>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sacar">
+          Sacar
+        </button>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="w-100"></div>
+      <div class="col">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sair">
+          Sair
+        </button>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="depositar" tabindex="-1" role="dialog" aria-labelledby="depositarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="depositarLabel">Deposito</h5>
+        </div>
+        <div class="modal-body">
+          <input type="number" id="val_dep">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="mc_depositar()" data-dismiss="modal">Depositar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="sacar" tabindex="-1" role="dialog" aria-labelledby="sacarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sacarLabel">Saque</h5>
+        </div>
+        <div class="modal-body">
+          <input type="number" id="val_saque">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="mc_sacar()" data-dismiss="modal">Sacar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="sair" tabindex="-1" role="dialog" aria-labelledby="sairLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sairLabel">Deseja sair?</h5>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+          <button type="button" class="btn btn-primary" onclick="mc_sair()" data-dismiss="modal">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

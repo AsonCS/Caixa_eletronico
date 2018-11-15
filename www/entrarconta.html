@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -22,17 +23,17 @@
 			<span class="badge badge-danger">Entrar na Conta</span>
 		</h1>
 
-		<form action="#" onsubmit="return entra_conta();" id="form">
+		<form action="#" onsubmit="try{entra_conta()}catch(e){} this.reset(); return false;" id="form">
 
 			<div class="form-group">
 				<label for="numconta">Numero da Conta</label>
-				<input name="numconta" type="text" class="form-control" id="numconta" placeholder="Numero Conta" pattern="[0-9]+" required>
+				<input name="numconta" type="number" class="form-control" id="numconta" placeholder="Numero Conta" required>
 
 			</div>
 
 			<div class="form-group">
 				<label for="senha">Senha</label>
-				<input type="password" class="form-control" name="senha" id="senha" placeholder="Senha	" required>
+				<input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
 			</div>
 
 			<button type="submit" class="btn btn-primary">Submit</button>

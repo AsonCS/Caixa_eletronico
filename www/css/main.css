@@ -1,0 +1,33 @@
+body {
+    background-color: #ddd;
+}
+
+#mancon h1,h2{
+    color: black;
+    font-weight: 900;
+    text-shadow: 2px 2px red;
+}
+
+#mancon span{
+    color: red;
+    text-shadow: 2px 2px black;
+}
+
+#mancon span span{
+    color: black;
+    text-shadow: 2px 2px red;
+}
+
+
+#mancon .col button {
+    border-radius: 30px;
+    color: black;
+    font-weight: 900;
+    height: 100%;
+    width: 100%;
+    background: goldenrod;
+}
+
+#mancon .col{
+    padding: 10px;
+}

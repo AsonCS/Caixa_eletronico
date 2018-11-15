@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -22,7 +23,7 @@
 			<span class="badge badge-danger">Criar Conta</span>
 		</h1>
 
-		<form action="#" onsubmit="return criar_conta();" id="form">
+		<form action="index.html" method="POST" onsubmit="criar_conta()" id="form">
 
 			<div class="form-group">
 				<label for="firstname">Nome</label>
@@ -31,7 +32,7 @@
 
 			<div class="form-group">
 				<label for="numconta">Numero da Conta</label>
-				<input name="numconta" type="text" class="form-control" id="numconta" placeholder="Numero Conta" pattern="[0-9]+" required>
+				<input name="numconta" type="number" class="form-control" id="numconta" placeholder="Numero Conta" required>
 
 			</div>
 

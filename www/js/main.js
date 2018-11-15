@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 var db = new Db();
 var contas = new Contas_DAO(db);
 
@@ -11,11 +11,65 @@ function criar_conta(){
             alert('inserido');            
         }, (error) => {alert(error.message)});
     document.getElementById('form').reset();
-	return false;
 }
 
 function entra_conta(){
-	return false;
+	var numconta = document.getElementById('form').numconta.value;
+	var senha = document.getElementById('form').senha.value;
+    contas.getConta(numconta, senha, (conta) => {
+        var con = JSON.stringify(conta);
+        sessionStorage.conta = con;
+        location = "manipularconta.html";
+    }, (error) => {alert(error.message)});
+}
+
+function manipular_conta(){
+    if(typeof(sessionStorage.conta) == 'undefined'){
+        sessionStorage.removeItem('conta');
+        location = "index.html";
+    }
+    var conta = JSON.parse(sessionStorage.conta);
+    conta = contas.montaConta(conta);
+    console.log(conta);
+    document.getElementById('cliente').innerHTML = conta.cliente;
+    document.getElementById('extrato').innerHTML = conta.saldoString();
+}
+
+function mc_depositar(){
+    var conta = JSON.parse(sessionStorage.conta);
+    conta = contas.montaConta(conta);
+    var valor = document.getElementById('val_dep').value;
+    valor = parseInt(valor);
+    if(isNaN(valor)){
+        alert('Valor invalido!');
+        return;
+    }
+    contas.depositar(valor, conta.numero, conta.senha, (con) => {
+        con = JSON.stringify(con);
+        sessionStorage.conta = con;        
+        location.reload();
+    }, (error) => {alert(error.message)});
+}
+
+function mc_sacar(){
+    var conta = JSON.parse(sessionStorage.conta);
+    conta = contas.montaConta(conta);
+    var valor = document.getElementById('val_saque').value;
+    valor = parseInt(valor);
+    if(isNaN(valor)){
+        alert('Valor invalido!');
+        return;
+    }
+    contas.sacar(valor, conta.numero, conta.senha, (con) => {
+        con = JSON.stringify(con);
+        sessionStorage.conta = con;        
+        location.reload();
+    }, (error) => {alert(error.message)});    
+}
+
+function mc_sair(){
+    sessionStorage.removeItem('conta');
+    location = "index.html";
 }
 
 /*

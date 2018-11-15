@@ -27,7 +27,7 @@ class Conta {
             }
         };
         this.saldoString = () => {
-            return "Saldo: " + this.saldo.toFixed(2);
+            return this.saldo.toFixed(2);
         };
     }
 }
@@ -63,7 +63,7 @@ class Corrente_especial extends Conta {
         this.saldoString = () => {
             var ext_limite = this.saldo < 0 ? this.limite + this.saldo : this.limite;
             var ext_saldo = this.saldo < 0 ? 0 : this.saldo;
-            return "Saldo: "+ext_saldo.toFixed(2)+"\nLimite: "+ext_limite.toFixed(2);
+            return ext_saldo.toFixed(2)+"<br/><span>Limite:</span> "+ext_limite.toFixed(2);
         };    
     }
 }
